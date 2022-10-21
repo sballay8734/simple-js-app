@@ -5,7 +5,7 @@ console.log(`${greeting} ${myName}!`);
 
 /////////////////////////////////////////////// Break
 
-let owner = 'Greg'
+let currentModel = 'Chevy';
 
 let car = {
     color: 'red',
@@ -18,5 +18,13 @@ let car = {
     }
 };
 
-car[owner] = 113;
-console.log(car[owner]);
+car[currentModel] = 13;
+console.log(car[currentModel]);
+
+let friendList = [
+    {friendName: 'Aaron', friendAge: 31, job: 'Teacher'},
+    {friendName: 'Donnie', friendAge: 31, job: 'IT'},
+    {},
+    {},
+    {},
+]
