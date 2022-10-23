@@ -35,3 +35,11 @@ pokemonList = [
         types: ['Electric', 'Flying']
     },
 ];
+
+for (let i = 0; i < pokemonList.length; i++) {
+    // console.log(pokemonList[i].name);
+    document.write(
+        `The height of ${pokemonList[i].name} is ${pokemonList[i].height}m.`
+        );
+    document.write("<br>");
+}

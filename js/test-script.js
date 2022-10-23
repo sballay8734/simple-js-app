@@ -47,7 +47,66 @@
 //     console.log('not 45 or 23');
 // }
 
-value = 'James';
-userName = value || 'friend';
+// value = 'James';
+// userName = value || 'friend';
 
-console.log(`Hi there ${userName}!`)
+// console.log(`Hi there ${userName}!`)
+
+// let age = 12;
+// let result = age < 20 && age > 12 ? "Teenager" : "Not a teen";
+// console.log(result);
+
+// let day = "tuesday";
+
+// switch (day.toUpperCase()) {
+//     case day = "MONDAY":
+//         console.log("Happy Monday!");
+//         break;
+//     case day = 'TUESDAY':
+//         console.log("Happy Tuesday!");
+//         break;
+
+//     default:
+//         console.log("Something went wrong!")
+//         break;
+// }
+
+// for (let i = 0; i <= 25; i++) {
+//     console.log(i);
+// }
+
+// for (let i = 1; i <= 100; i++) {
+//     console.log(i);
+//   }
+
+// let friendsList = ['Aaron', 'John', 'Chris', 'James', 'Megan'];
+// for (let i = 0; i < friendsList.length; i++) {
+//     console.log(friendsList[i]);
+    
+// }
+
+let friendAge = [
+    {name: 'Chris', age: 14},
+    {name: 'David', age: 24},
+    {name: 'Megan', age: 18},
+]
+
+for (let i = 0; i < friendAge.length; i++) {
+    if ((friendAge[i].age < 20) && (friendAge[i].age > 12)) {
+        console.log(`${friendAge[i].name} is a teenager!`);
+    } else {
+        console.log(`${friendAge[i].name} is NOT a teenager!`);
+    }
+}
+
+
+let numberList = [1, 200, 37, 457, 56, 61, 71, 807, 9093, 100];
+while (true) {
+    for (let i = 0; i < numberList.length; i++) {
+        if (numberList[i] < 100) {
+            console.log(`${numberList[i]} is less than 100`);
+        } else {
+            console.log(`${numberList[i]} is greater than or equal to 100`);
+        }
+    } break;
+}
