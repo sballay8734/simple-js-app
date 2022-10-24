@@ -36,23 +36,50 @@ pokemonList = [
     },
 ];
 
-for (let i = 0; i < pokemonList.length; i++) {
+// for (let i = 0; i < pokemonList.length; i++) {
 
-    // Writes a special message if the pokemon's height is greater than 2m
-    if (pokemonList[i].height > 2) {
-        document.write(
-            `The height of ${pokemonList[i].name} is ${pokemonList[i].height}m. WOW, that's big!`
-            );
-        document.write("<br>");
-        document.write("<br>")
+//     // Writes a special message if the pokemon's height is greater than 2m
+//     if (pokemonList[i].height > 2) {
+//         document.write(
+//             `The height of ${pokemonList[i].name} is ${pokemonList[i].height}m. WOW, that's big!`
+//             );
+//         document.write("<br>");
+//         document.write("<br>")
 
-    // Writes the height of the pokemon and their name
-    } else {
-        document.write(
-            `The height of ${pokemonList[i].name} is ${pokemonList[i].height}m.`
-            );
-        document.write("<br>");
-        document.write("<br>")
-    } 
+//     // Writes the height of the pokemon and their name
+//     } else {
+//         document.write(
+//             `The height of ${pokemonList[i].name} is ${pokemonList[i].height}m.`
+//             );
+//         document.write("<br>");
+//         document.write("<br>")
+//     } 
 
+// }
+
+function printArrayDetails() {
+    for (let i = 0; i < pokemonList.length; i++) {
+
+        // Writes a special message if the pokemon's height is greater than 2m
+        if (pokemonList[i].height > 2) {
+            document.write(
+                `The height of ${pokemonList[i].name} is ${pokemonList[i].height}m. WOW, that's big!`
+                );
+            document.write("<br>");
+            document.write("<br>");
+    
+        // Writes the height of the pokemon and their name
+        } else {
+            document.write(
+                `The height of ${pokemonList[i].name} is ${pokemonList[i].height}m.`
+                );
+            document.write("<br>");
+            document.write("<br>");
+        } 
+    
+    }
+}
+
+for (let i = 0; i < 4; i++) {
+    printArrayDetails();
 }

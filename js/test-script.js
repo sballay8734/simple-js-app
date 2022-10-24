@@ -1,3 +1,63 @@
+let fullClassList = [
+    {
+        firstName: 'John',
+        middleName: '',
+        lastName: 'Smith',
+        preferredName: 'JJ', 
+        gender: 'male',
+        birthDate: '10242012',
+        // age: calculated from birthDate,
+        track: 1,
+
+        houseNumber: 14,
+        roadName: 'Cool Road Name Dr.',
+        aptNumber: 'C3',
+        town: 'Jacksonville',
+        state: 'PA', 
+        zipCode: 12345,
+
+        PrimaryContact1Name: 'Jane Doe',
+        PrimaryContact1CellPhone: '5559995555',
+        PrimaryContact1WorkPhone: '',
+        PrimaryContact1Email: '',
+        PC1RelationToChild: 'Mother',
+
+        PrimaryContact2Name: '',
+        PrimaryContact2CellPhone: '',
+        PrimaryContact2WorkPhone: '',
+        PrimaryContact2Email: '',
+        PC2RelationToChild: 'Father',  
+
+        emergencyContact1Name: 'Jane Smith',
+        emergencyContact1CellPhone: '5559995235',
+        emergencyContact1WorkPhone: '',
+        emergencyContact1Email: '',
+        EC1RelationToChild: 'Aunt', 
+
+        emergencyContact2Name: '',
+        emergencyContact2CellPhone: '',
+        emergencyContact2WorkPhone: '',
+        emergencyContact2Email: '',
+        EC2RelationToChild: 'Uncle',
+
+        allergies: ['peanuts', 'eggs'],
+        potentiallyLifeThreatening: true,
+        medicine: ['Epi pen', 'inhaler'],
+        epiPenOnSite: true,
+        otherMedicineOnSite: false,
+        additionalHealthInfo: '',
+
+        // Doctor info goes here
+
+
+    },
+    {},
+    {},
+    {},
+]
+
+
+
 // let myName = 'Shawn';
 // let greeting = 'Hello';
 
@@ -110,3 +170,50 @@ while (true) {
         }
     } break;
 }
+
+function printArrayDetails() {
+    for (let i = 0; i < pokemonList.length; i++) {
+
+        // Writes a special message if the pokemon's height is greater than 2m
+        if (pokemonList[i].height > 2) {
+            document.write(
+                `The height of ${pokemonList[i].name} is ${pokemonList[i].height}m. WOW, that's big!`
+                );
+            document.write("<br>");
+            document.write("<br>")
+    
+        // Writes the height of the pokemon and their name
+        } else {
+            document.write(
+                `The height of ${pokemonList[i].name} is ${pokemonList[i].height}m.`
+                );
+            document.write("<br>");
+            document.write("<br>")
+        } 
+    
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
