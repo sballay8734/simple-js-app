@@ -6,7 +6,7 @@ let fullClassList = [
         preferredName: 'JJ', 
         gender: 'male',
         birthDate: '10242012',
-        // age: calculated from birthDate,
+        // age: function {calculate from birthDate}
         track: 1,
 
         houseNumber: 14,
@@ -72,11 +72,16 @@ let fullClassList = [
 //     mileage: 10,
 //     make: 'BMW',
 //     size: 'small',
+//     sizeFunc: function() {
+//         console.log(this.size);
+//     },
 //     brother: {
 //         name: 'kyle',
 //         age: 34,
 //     }
 // };
+
+car.sizeFunc();
 
 // car[currentModel] = 13;
 // console.log(car[currentModel]);
