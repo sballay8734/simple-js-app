@@ -81,7 +81,7 @@ let fullClassList = [
 //     }
 // };
 
-car.sizeFunc();
+// car.sizeFunc();
 
 // car[currentModel] = 13;
 // console.log(car[currentModel]);
