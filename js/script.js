@@ -57,13 +57,13 @@ pokemonList = [
 
 // }
 
-function printArrayDetails() {
-    for (let i = 0; i < pokemonList.length; i++) {
+function printArrayDetails(list) {
+    for (let i = 0; i < list.length; i++) {
 
         // Writes a special message if the pokemon's height is greater than 2m
-        if (pokemonList[i].height > 2) {
+        if (list[i].height > 2) {
             document.write(
-                `The height of ${pokemonList[i].name} is ${pokemonList[i].height}m. WOW, that's big!`
+                `The height of ${list[i].name} is ${list[i].height}m. WOW, that's big!`
                 );
             document.write("<br>");
             document.write("<br>");
@@ -71,7 +71,7 @@ function printArrayDetails() {
         // Writes the height of the pokemon and their name
         } else {
             document.write(
-                `The height of ${pokemonList[i].name} is ${pokemonList[i].height}m.`
+                `The height of ${list[i].name} is ${list[i].height}m.`
                 );
             document.write("<br>");
             document.write("<br>");
@@ -80,6 +80,8 @@ function printArrayDetails() {
     }
 }
 
-for (let i = 0; i < 4; i++) {
-    printArrayDetails();
-}
+printArrayDetails(pokemonList);
+
+// for (let i = 0; i < 4; i++) {
+//     printArrayDetails();
+// }
