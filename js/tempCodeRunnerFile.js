@@ -1,3 +1,3 @@
-for (let i = 0; i <= 25; i++) {
-    console.log(i);
-}
+pokemonList.forEach( item => {
+//     console.log(item.name, item.height, item.types);
+// });

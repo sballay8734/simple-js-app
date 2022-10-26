@@ -55,6 +55,7 @@ let fullClassList = [
     {},
     {},
 ]
+// console.log(Object.keys(fullClassList[0]));
 
 
 
@@ -150,62 +151,210 @@ let fullClassList = [
     
 // }
 
-let friendAge = [
-    {name: 'Chris', age: 14},
-    {name: 'David', age: 24},
-    {name: 'Megan', age: 18},
-]
+// let friendAge = [
+//     {name: 'Chris', age: 14},
+//     {name: 'David', age: 24},
+//     {name: 'Megan', age: 18},
+// ]
 
-for (let i = 0; i < friendAge.length; i++) {
-    if ((friendAge[i].age < 20) && (friendAge[i].age > 12)) {
-        console.log(`${friendAge[i].name} is a teenager!`);
-    } else {
-        console.log(`${friendAge[i].name} is NOT a teenager!`);
-    }
-}
+// for (let i = 0; i < friendAge.length; i++) {
+//     if ((friendAge[i].age < 20) && (friendAge[i].age > 12)) {
+//         console.log(`${friendAge[i].name} is a teenager!`);
+//     } else {
+//         console.log(`${friendAge[i].name} is NOT a teenager!`);
+//     }
+// }
 
 
-let numberList = [1, 200, 37, 457, 56, 61, 71, 807, 9093, 100];
-while (true) {
-    for (let i = 0; i < numberList.length; i++) {
-        if (numberList[i] < 100) {
-            console.log(`${numberList[i]} is less than 100`);
-        } else {
-            console.log(`${numberList[i]} is greater than or equal to 100`);
-        }
-    } break;
-}
+// let numberList = [1, 200, 37, 457, 56, 61, 71, 807, 9093, 100];
+// while (true) {
+//     for (let i = 0; i < numberList.length; i++) {
+//         if (numberList[i] < 100) {
+//             console.log(`${numberList[i]} is less than 100`);
+//         } else {
+//             console.log(`${numberList[i]} is greater than or equal to 100`);
+//         }
+//     } break;
+// }
 
-function printArrayDetails(list) {
-    for (let i = 0; i < list.length; i++) {
+// function printArrayDetails(list) {
+//     for (let i = 0; i < list.length; i++) {
 
-        // Writes a special message if the pokemon's height is greater than 2m
-        if (list[i].height > 2) {
-            document.write(
-                `The height of ${list[i].name} is ${list[i].height}m. WOW, that's big!`
-                );
-            document.write("<br>");
-            document.write("<br>")
+//         // Writes a special message if the pokemon's height is greater than 2m
+//         if (list[i].height > 2) {
+//             document.write(
+//                 `The height of ${list[i].name} is ${list[i].height}m. WOW, that's big!`
+//                 );
+//             document.write("<br>");
+//             document.write("<br>")
     
-        // Writes the height of the pokemon and their name
-        } else {
-            document.write(
-                `The height of ${list[i].name} is ${list[i].height}m.`
-                );
-            document.write("<br>");
-            document.write("<br>")
-        } 
+//         // Writes the height of the pokemon and their name
+//         } else {
+//             document.write(
+//                 `The height of ${list[i].name} is ${list[i].height}m.`
+//                 );
+//             document.write("<br>");
+//             document.write("<br>")
+//         } 
     
-    }
-}
+//     }
+// }
 
 
-function Sum(val1, val2) {
-    return val1 + val2;
-}
+// function Sum(val1, val2) {
+//     return val1 + val2;
+// }
 
-let result = Sum(5, 7);
-console.log(result);
+// let result = Sum(5, 7);
+// console.log(result);
+
+
+// let nameList = ['John', 'David', 'Amy', 'Chris', 'Shawn'];
+// let blankList = [1, 2, 3, 4];
+
+// nameList.push('Nikki');
+
+// console.log(nameList);
+// console.log(nameList.at(0))
+// blankList.fill(0, 0, 4);
+// console.log(blankList);
+
+// nameList.forEach(function(name) {
+//     console.log(name);
+// });
+
+
+pokemonList = [
+    {
+        name: 'Bulbasaur', 
+        height: 0.7, 
+        types: ['Grass', 'Poison']
+    },
+    {
+        name: 'Charmander', 
+        height: 0.6, 
+        types: ['Fire']
+    },
+    {
+        name: 'Squirtle', 
+        height: 0.5, 
+        types: ['Water']
+    },
+    {
+        name: 'Arcanine', 
+        height: 1.9, 
+        types: ['Fire']
+    },
+    {
+        name: 'Gengar', 
+        height: 1.5, 
+        types: ['Ghost', 'Poison']
+    },
+    {
+        name: 'Gyarados', 
+        height: 6.5, 
+        types: ['Water', 'Flying']
+    },
+    {
+        name: 'Zapdos', 
+        height: 1.6, 
+        types: ['Electric', 'Flying']
+    },
+];
+
+
+// pokemonList.forEach( item => {
+//     console.log(item.name, item.height, item.types);
+// });
+
+let blankList1 = [];
+let blankList2 = [];
+let blankList3 = [];
+
+pokemonList.forEach(element => {
+    blankList1.push(element.name);
+    blankList2.push(element.height);
+    blankList3.push(element.types);
+});
+
+console.log("1. " + blankList1);
+console.log("2. " + blankList2);
+console.log("3. " + blankList3);
+
+
+// pokemonList.forEach(function(key) {
+//     console.log(key.name);
+// });
+
+// let randomArray = ["Pikachu"];
+
+// pokemonList.forEach(function(key){
+//     randomArray.push(key.name);
+// });
+// console.log('');
+// console.log(randomArray);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
