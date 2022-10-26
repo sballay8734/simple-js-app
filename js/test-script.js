@@ -280,6 +280,11 @@ pokemonList.forEach(element => {
 console.log("1. " + blankList1);
 console.log("2. " + blankList2);
 console.log("3. " + blankList3);
+console.log('');
+
+Object.keys(pokemonList).forEach( function(item) {
+    console.log(pokemonList[item]);
+});
 
 
 // pokemonList.forEach(function(key) {
@@ -295,11 +300,11 @@ console.log("3. " + blankList3);
 // console.log(randomArray);
 
 
+let add = (a,b) => a + b;
+let mult = (a,b) => a * b;
 
 
-
-
-
+console.log(add(mult(4,3), mult(3, 4)));
 
 
 
