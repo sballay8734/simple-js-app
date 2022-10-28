@@ -267,19 +267,19 @@ pokemonList = [
 //     console.log(item.name, item.height, item.types);
 // });
 
-let blankList1 = [];
-let blankList2 = [];
-let blankList3 = [];
+// let blankList1 = [];
+// let blankList2 = [];
+// let blankList3 = [];
 
-pokemonList.forEach(element => {
-    blankList1.push(element.name);
-    blankList2.push(element.height);
-    blankList3.push(element.types);
-});
+// pokemonList.forEach(element => {
+//     blankList1.push(element.name);
+//     blankList2.push(element.height);
+//     blankList3.push(element.types);
+// });
 
-console.log("1. " + blankList1);
-console.log("2. " + blankList2);
-console.log("3. " + blankList3);
+// console.log("1. " + blankList1);
+// console.log("2. " + blankList2);
+// console.log("3. " + blankList3);
 
 
 // pokemonList.forEach(function(key) {
@@ -295,7 +295,16 @@ console.log("3. " + blankList3);
 // console.log(randomArray);
 
 
+let globalVar = (function () {
+    let winCounterUser1 = 0;
 
+    let winCounterUser2 = 0;
+
+    return {
+        winner: winCounterUser1,
+        loser: winCounterUser2
+    };
+})();
 
 
 
