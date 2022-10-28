@@ -299,48 +299,93 @@ pokemonList = [
 // console.log('');
 // console.log(randomArray);
 
+///////////////////////////////////////////////////////////////////////////////
+// let globalVar = (function () {
+//     let p1Wins = 0;
+//     let p2Wins = 0;
+//     let gameCount = 0;
+
+//     return {
+//         getScore: function () {
+//             return "Player 1 Wins: " + p1Wins + "\nPlayer 2 Wins: " + p2Wins;
+//         },
+//         updateP1Score: function(player1) {
+//             p1Wins++;
+//             return p1Wins;
+//         },
+//         updateP2Score: function(player2) {
+//             p2Wins++;
+//             return p2Wins;
+//         },
+//         updateGameCounter: function () {
+//             gameCount++;
+//             return gameCount;
+//         }
+//     };
+// })();
+
+// console.log(globalVar.updateP1Score());
+// console.log(globalVar.updateP1Score());
+// console.log(globalVar.updateP2Score());
+
+// console.log(globalVar.getScore());
+
+// globalVar.updateP1Score
+///////////////////////////////////////////////////////////////////////////////
+
 
 let globalVar = (function () {
-    let p1Wins = 0;
-    let p2Wins = 0;
-    let gameCount = 0;
+    let player1 = "John"; // would be retrieved from input
+    let player2 = "Mary"; // would be retrieved from input
+    let player1Wins = 0;
+    let player2Wins = 0;
+    let gameCounter = 0;
+
+// Proof of concept
+    function updatePlayerScore(player) {
+        if (player === "John") {
+            player1Wins++;
+            return player1Wins;
+        } else if (player === "Mary") {
+            player2Wins++;
+            return player2Wins;
+        } else {
+            return "Something went wrong!";
+        };
+    }
+    function getWinner() {
+        // also proof of concept (Choices would be retrieved from input)
+        player1Choice = "paper";
+        player2Choice = "rock";
+
+        if (player1Choice==="rock" && player2Choice==="paper") {
+            updatePlayerScore(player2);
+        } else {
+            updatePlayerScore(player1);
+        }
+    }
+    function updateGameCounter() {
+        gameCounter++;
+        return gameCounter;
+    }
+    function getScore() {
+        return "Player 1 Wins: " + player1Wins + "\nPlayer 2 Wins: " + player2Wins;
+    }
 
     return {
-
-        getScore: function () {
-            return "Player 1 Wins: " + p1Wins + "\nPlayer 2 Wins: " + p2Wins;
-        },
-        updateP1Score: function(player1) {
-            p1Wins++;
-            return p1Wins;
-        },
-        updateP2Score: function(player2) {
-            p2Wins++;
-            return p2Wins;
-        },
-        updateGameCounter: function () {
-            gameCount++;
-            return gameCount;
-        }
+        updatePlayerScore: updatePlayerScore,
+        updateGameCounter: updateGameCounter,
+        getScore: getScore,
+        getWinner: getWinner
     };
 })();
 
-console.log(globalVar.updateP1Score());
-console.log(globalVar.updateP1Score());
-console.log(globalVar.updateP2Score());
+globalVar.getWinner();
+globalVar.getWinner();
+globalVar.getWinner();
+globalVar.getWinner();
 
 console.log(globalVar.getScore());
-
-// globalVar.updateP1Score
-
-
-
-
-
-
-
-
-
 
 
 

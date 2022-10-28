@@ -1,1 +1,1 @@
-globalVar.updateP1Score
+console.log(globalVar.getScore());
