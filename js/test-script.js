@@ -277,14 +277,14 @@ pokemonList = [
 //     blankList3.push(element.types);
 // });
 
-console.log("1. " + blankList1);
-console.log("2. " + blankList2);
-console.log("3. " + blankList3);
-console.log('');
+// console.log("1. " + blankList1);
+// console.log("2. " + blankList2);
+// console.log("3. " + blankList3);
+// console.log('');
 
-Object.keys(pokemonList).forEach( function(item) {
-    console.log(pokemonList[item]);
-});
+// Object.keys(pokemonList).forEach( function(item) {
+//     console.log(pokemonList[item]);
+// });
 
 
 // pokemonList.forEach(function(key) {
@@ -301,22 +301,37 @@ Object.keys(pokemonList).forEach( function(item) {
 
 
 let globalVar = (function () {
-    let winCounterUser1 = 0;
-
-    let winCounterUser2 = 0;
+    let p1Wins = 0;
+    let p2Wins = 0;
+    let gameCount = 0;
 
     return {
-        winner: winCounterUser1,
-        loser: winCounterUser2
+
+        getScore: function () {
+            return "Player 1 Wins: " + p1Wins + "\nPlayer 2 Wins: " + p2Wins;
+        },
+        updateP1Score: function(player1) {
+            p1Wins++;
+            return p1Wins;
+        },
+        updateP2Score: function(player2) {
+            p2Wins++;
+            return p2Wins;
+        },
+        updateGameCounter: function () {
+            gameCount++;
+            return gameCount;
+        }
     };
 })();
 
+console.log(globalVar.updateP1Score());
+console.log(globalVar.updateP1Score());
+console.log(globalVar.updateP2Score());
 
+console.log(globalVar.getScore());
 
-
-console.log(add(mult(4,3), mult(3, 4)));
-
-
+// globalVar.updateP1Score
 
 
 
