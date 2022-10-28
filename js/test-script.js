@@ -277,9 +277,14 @@ pokemonList = [
 //     blankList3.push(element.types);
 // });
 
-// console.log("1. " + blankList1);
-// console.log("2. " + blankList2);
-// console.log("3. " + blankList3);
+console.log("1. " + blankList1);
+console.log("2. " + blankList2);
+console.log("3. " + blankList3);
+console.log('');
+
+Object.keys(pokemonList).forEach( function(item) {
+    console.log(pokemonList[item]);
+});
 
 
 // pokemonList.forEach(function(key) {
@@ -309,6 +314,7 @@ let globalVar = (function () {
 
 
 
+console.log(add(mult(4,3), mult(3, 4)));
 
 
 
