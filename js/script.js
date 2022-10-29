@@ -42,10 +42,9 @@ let pokemonRepository = (function () {
         return pokemonList;
     }
 
-    // adds new object to pokemonList and checks type. DOESN'T WORK
-    function add(item) { 
-        if ((typeof item === "object") && (Object.keys(item) === ['name', 'height', 'types'])) {
-            pokemonList.push(item);
+    function add2(object) {
+        if ((typeof object === 'object') && JSON.stringify(Object.keys(object).sort()) === JSON.stringify(['height', 'name', 'types'])) {
+            pokemonList.push(object);
         } else {
             return "Incorrect Format";
         };
@@ -53,7 +52,7 @@ let pokemonRepository = (function () {
 
     return {
         getAll: getAll,
-        add: add
+        add2: add2
     };
 
 })();
@@ -78,11 +77,13 @@ function printArrayDetails2(list) {
     });
 }
 
-pokemonRepository.add({name: 'Ninetales', height: 1.1, types: ['Fire']});
-// Now it is not adding this one ^^^
+pokemonRepository.add2({name: 'Ninetales', height: 1.1, types: ['Fire']});
+// Works NOW!
 
-pokemonRepository.add({height: 5, nae: 'Grey', type: ['yellow']});
-// Not adding this anymore ^^^ GOOD
+pokemonRepository.add2({height: 5, nae: 'Grey', type: ['yellow']});
+// WORKS NOW!
+
+console.log(pokemonRepository.getAll());
 
 printArrayDetails2(pokemonRepository.getAll());
 
@@ -197,3 +198,36 @@ printArrayDetails2(pokemonRepository.getAll());
 // testList.forEach(function(item){
 //     console.log(Object.keys(item))
 // });
+
+
+// let header = document.querySelector('header')
+// let button = document.createElement('button');
+// button.innerText = 'Click Me';
+// header.appendChild(button);
+
+///////// CHALLENGES BELOW //////////
+
+// add button to header div
+
+
+
+// add paragraph to center main div
+
+
+
+// remove text from footer div
+
+
+
+// let testObject = {
+//     name: 'Ninetales',
+//     height: 1.1,
+//     types: ['Fire']
+// };
+
+// let compareList = JSON.stringify(["height","name","types"]);
+// let stringifyList = JSON.stringify(Object.keys(testObject).sort());
+
+// console.log(compareList);
+// console.log(stringifyList);
+// console.log(compareList === stringifyList);
