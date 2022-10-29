@@ -42,9 +42,9 @@ let pokemonRepository = (function () {
         return pokemonList;
     }
 
-    // adds new object to pokemonList and checks type
-    function add(item) {
-        if ((typeof item === "object") && (Object.keys(item) === 'name', 'height', 'types')) {
+    // adds new object to pokemonList and checks type. DOESN'T WORK
+    function add(item) { 
+        if ((typeof item === "object") && (Object.keys(item) === ['name', 'height', 'types'])) {
             pokemonList.push(item);
         } else {
             return "Incorrect Format";
@@ -52,9 +52,8 @@ let pokemonRepository = (function () {
     }
 
     return {
-        pokemonList: pokemonList,
         getAll: getAll,
-        add: add,
+        add: add
     };
 
 })();
@@ -80,12 +79,12 @@ function printArrayDetails2(list) {
 }
 
 pokemonRepository.add({name: 'Ninetales', height: 1.1, types: ['Fire']});
+// Now it is not adding this one ^^^
 
 pokemonRepository.add({height: 5, nae: 'Grey', type: ['yellow']});
-// not sure why its still adding this ^^^ to the list. Incorrect keys returning "undefined" makes sense. But I thought all three keys would need to match for it to add anything.
+// Not adding this anymore ^^^ GOOD
 
 printArrayDetails2(pokemonRepository.getAll());
-
 
 
 
@@ -157,3 +156,44 @@ printArrayDetails2(pokemonRepository.getAll());
 // }
 
 // printArrayDetails(pokemonList);
+let testList = [
+    {
+        name: 'Bulbasaur', 
+        height: 0.7, 
+        types: ['Grass', 'Poison']
+    },
+    {
+        name: 'Charmander', 
+        height: 0.6, 
+        types: ['Fire']
+    },
+    {
+        name: 'Squirtle', 
+        height: 0.5, 
+        types: ['Water']
+    },
+    {
+        name: 'Arcanine', 
+        height: 1.9, 
+        types: ['Fire']
+    },
+    {
+        name: 'Gengar', 
+        height: 1.5, 
+        types: ['Ghost', 'Poison']
+    },
+    {
+        name: 'Gyarados', 
+        height: 6.5, 
+        types: ['Water', 'Flying']
+    },
+    {
+        name: 'Zapdos', 
+        height: 1.6, 
+        types: ['Electric', 'Flying']
+    },
+];
+
+testList.forEach(function(item){
+    console.log(Object.keys(item))
+});
