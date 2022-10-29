@@ -373,10 +373,10 @@ let globalVar = (function () {
     }
 
     return {
-        updatePlayerScore: updatePlayerScore,
-        updateGameCounter: updateGameCounter,
-        getScore: getScore,
-        getWinner: getWinner
+        updatePlayerScore,
+        updateGameCounter,
+        getScore,
+        getWinner
     };
 })();
 
