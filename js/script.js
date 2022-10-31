@@ -50,8 +50,19 @@ let pokemonRepository = (function () {
         };
     }
 
+    function addListItem(pokemon) {
+        let listSelector = document.querySelector('ul');
+        let listItem = document.createElement('li');
+        let buttonElement = document.createElement('button');
+        buttonElement.innerText = pokemon.name;
+        buttonElement.classList.add(pokemon.types[0].toLowerCase());
+        listItem.appendChild(buttonElement);
+        listSelector.appendChild(listItem);
+    } 
+
     return {
         getAll: getAll,
+        addListItem: addListItem,
         add2: add2
     };
 
@@ -59,29 +70,13 @@ let pokemonRepository = (function () {
 
 function printArrayDetails2(list) {
     pokemonRepository.getAll().forEach(pokemon => {
-        if (pokemon.height > 2) {
-            document.write(
-                "Name: <strong>" + pokemon.name + "</strong><br>",
-                "Height: " + pokemon.height + "m. Wow, that's big!<br>",
-                "Types: " + pokemon.types + "<br>",
-                "<br>"
-            )
-        } else {
-            document.write(
-                "Name: <strong>" + pokemon.name + "</strong><br>",
-                "Height: " + pokemon.height + "m.<br>",
-                "Types: " + pokemon.types + "<br>",
-                "<br>"
-            )
-        }
+        pokemonRepository.addListItem(pokemon);
     });
 }
 
 pokemonRepository.add2({name: 'Ninetales', height: 1.1, types: ['Fire']});
-// Works NOW!
 
 pokemonRepository.add2({height: 5, nae: 'Grey', type: ['yellow']});
-// WORKS NOW!
 
 console.log(pokemonRepository.getAll());
 
@@ -90,7 +85,18 @@ printArrayDetails2(pokemonRepository.getAll());
 
 
 
+// let testObject = {
+//     name: 'Ninetales',
+//     height: 1.1,
+//     types: ['Fire']
+// };
 
+// let compareList = JSON.stringify(["height","name","types"]);
+// let stringifyList = JSON.stringify(Object.keys(testObject).sort());
+
+// console.log(compareList);
+// console.log(stringifyList);
+// console.log(compareList === stringifyList);
 
 
 // ************************** OLD CODE BELOW ************************** 
@@ -194,6 +200,16 @@ printArrayDetails2(pokemonRepository.getAll());
 //         types: ['Electric', 'Flying']
 //     },
 // ];
+// console.log(testList[0].types[0]);
+// let headerArea = document.querySelector('header');
+// let button = document.createElement('button');
+// button.innerText = testList[0].name;
+// headerArea.appendChild(button);
+// button.classList.add(testList[0].types[1].toLowerCase());
+
+// testList.forEach(pokemon => {
+// console.log(pokemon.types);
+// })
 
 // testList.forEach(function(item){
 //     console.log(Object.keys(item))
@@ -207,27 +223,29 @@ printArrayDetails2(pokemonRepository.getAll());
 
 ///////// CHALLENGES BELOW //////////
 
-// add button to header div
+// add internal button & sibling button to header div
+// let header = document.querySelector('header');
+// let button2 = document.createElement('button');
+// button2.innerText = 'Sibling Button';
+// header.appendChild(button2);
+
+// let headerDiv = document.querySelector('header > div');
+// let divButton = document.createElement('button');
+// divButton.innerText = 'Header Inside Div Button';
+// headerDiv.appendChild(divButton);
+
+// // add paragraph to center main div
+// let middleDiv = document.querySelector('main :nth-child(2)');
+// let middleDivPara = document.createElement('p');
+// middleDivPara.innerText = 'Paragraph inside middle div';
+// middleDiv.appendChild(middleDivPara);
 
 
+// // remove text from footer div
+// // let elementToRemove = document.querySelector('footer > .footer');
+// // elementToRemove.parentElement.removeChild(elementToRemove);
+// // footerDiv.innerText = '';
 
-// add paragraph to center main div
-
-
-
-// remove text from footer div
-
-
-
-// let testObject = {
-//     name: 'Ninetales',
-//     height: 1.1,
-//     types: ['Fire']
-// };
-
-// let compareList = JSON.stringify(["height","name","types"]);
-// let stringifyList = JSON.stringify(Object.keys(testObject).sort());
-
-// console.log(compareList);
-// console.log(stringifyList);
-// console.log(compareList === stringifyList);
+// let elementToEdit = document.querySelector('main :nth-child(3)');
+// elementToEdit.classList.remove('main');
+// elementToEdit.classList.add('footer');

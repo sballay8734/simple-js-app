@@ -1,25 +1,50 @@
-button {
-    margin: 1rem;
-    margin-left: 0;
+.fire {
+    background-color: orange;
 }
 
-.main {
-    border: 3px solid black;
-    height: 100px;
-    margin: 1rem;
-    margin-left: 0;
+.grass {
+    background-color: green;
 }
 
-.header {
-    border: 3px solid red;
-    height: 100px;
-    margin: 1rem;
-    margin-left: 0;
+.poison {
+    background-color: red;
 }
 
-.footer {
-    border: 3px solid rgb(0, 230, 195);
-    height: 100px;
-    margin: 1rem;
-    margin-left: 0;
+.water {
+    background-color: aqua;
+}
+
+.ghost {
+    background-color: blueviolet;
+}
+
+.flying {
+    background-color: white;
+}
+
+.electric {
+    background-color: yellow;
+}
+
+.title {
+    text-align: center;
+    font-size: 3rem;
+}
+
+main {
+    border: 2px solid black;
+}
+
+.pokemon-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.pokemon-list li button {
+    width: 100%;
+    height: 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
