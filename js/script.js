@@ -69,7 +69,7 @@ let pokemonRepository = (function () {
 })();
 
 function printArrayDetails2(list) {
-    pokemonRepository.getAll().forEach(pokemon => {
+    list.forEach(pokemon => {
         pokemonRepository.addListItem(pokemon);
     });
 }
