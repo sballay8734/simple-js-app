@@ -42,7 +42,7 @@ let pokemonRepository = (function () {
         return pokemonList;
     }
 
-    function add2(object) {
+    function add(object) {
         if ((typeof object === 'object') && JSON.stringify(Object.keys(object).sort()) === JSON.stringify(['height', 'name', 'types'])) {
             pokemonList.push(object);
         } else {
@@ -58,29 +58,34 @@ let pokemonRepository = (function () {
         buttonElement.classList.add(pokemon.types[0].toLowerCase());
         listItem.appendChild(buttonElement);
         listSelector.appendChild(listItem);
-    } 
+    }
+
+    function showDetails(pokemon) {
+        console.log(pokemon);
+    };
 
     return {
         getAll: getAll,
         addListItem: addListItem,
-        add2: add2
+        add: add,
+        showDetails: showDetails
     };
 
 })();
 
-function printArrayDetails2(list) {
+function printArrayDetails(list) {
     list.forEach(pokemon => {
         pokemonRepository.addListItem(pokemon);
     });
 }
 
-pokemonRepository.add2({name: 'Ninetales', height: 1.1, types: ['Fire']});
+pokemonRepository.add({name: 'Ninetales', height: 1.1, types: ['Fire']});
 
-pokemonRepository.add2({height: 5, nae: 'Grey', type: ['yellow']});
+pokemonRepository.add({height: 5, nae: 'Grey', type: ['yellow']});
 
 console.log(pokemonRepository.getAll());
 
-printArrayDetails2(pokemonRepository.getAll());
+printArrayDetails(pokemonRepository.getAll());
 
 
 
