@@ -70,7 +70,7 @@ let pokemonRepository = (function () {
 
     // not working as intended
     function showDetails(pokemon) {
-        // let parent = document.querySelector('.pokemon-list')
+        // let parent = document.querySelector('li')
         // let detailSpace = document.createElement('p');
         // detailSpace.innerText = pokemon.types;
         // parent.appendChild(detailSpace);
