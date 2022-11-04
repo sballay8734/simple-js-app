@@ -3,7 +3,9 @@ let pokemonRepository = (function () {
         {
             name: 'Bulbasaur', 
             height: 0.7, 
-            types: ['Grass', 'Poison']
+            types: ['Grass', 'Poison'],
+            // testing functions
+            details: 'Grass and poison type pokemon that precedes Ivysaur and Venusaur'
         },
         {
             name: 'Charmander', 
@@ -58,17 +60,31 @@ let pokemonRepository = (function () {
         buttonElement.classList.add(pokemon.types[0].toLowerCase());
         listItem.appendChild(buttonElement);
         listSelector.appendChild(listItem);
+        // call function to add listener
+        addListener(buttonElement, pokemon);
     }
 
+    function addListener(buttonElement, pokemon) {
+        buttonElement.addEventListener('click', showDetails(pokemon));
+    }
+
+    // not working as intended
     function showDetails(pokemon) {
-        console.log(pokemon);
+        let parent = document.querySelector('.pokemon-list')
+        let detailSpace = document.createElement('p');
+        detailSpace.innerText = pokemon.details;
+        parent.appendChild(detailSpace);
+        detailSpace.classList.toggle('hidden');
+        detailSpace.classList.toggle('is-visible');
+        // console.log(pokemon);
     };
 
     return {
         getAll: getAll,
         addListItem: addListItem,
         add: add,
-        showDetails: showDetails
+        showDetails: showDetails,
+        addListener: addListener
     };
 
 })();
@@ -80,11 +96,6 @@ function printArrayDetails(list) {
 }
 
 pokemonRepository.add({name: 'Ninetales', height: 1.1, types: ['Fire']});
-
-pokemonRepository.add({height: 5, nae: 'Grey', type: ['yellow']});
-
-console.log(pokemonRepository.getAll());
-
 printArrayDetails(pokemonRepository.getAll());
 
 
