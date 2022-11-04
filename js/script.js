@@ -65,18 +65,18 @@ let pokemonRepository = (function () {
     }
 
     function addListener(buttonElement, pokemon) {
-        buttonElement.addEventListener('click', showDetails(pokemon));
+        buttonElement.addEventListener('click', () => showDetails(pokemon));
     }
 
     // not working as intended
     function showDetails(pokemon) {
-        let parent = document.querySelector('.pokemon-list')
-        let detailSpace = document.createElement('p');
-        detailSpace.innerText = pokemon.details;
-        parent.appendChild(detailSpace);
-        detailSpace.classList.toggle('hidden');
-        detailSpace.classList.toggle('is-visible');
-        // console.log(pokemon);
+        // let parent = document.querySelector('.pokemon-list')
+        // let detailSpace = document.createElement('p');
+        // detailSpace.innerText = pokemon.types;
+        // parent.appendChild(detailSpace);
+        // detailSpace.classList.add('hidden');
+        // detailSpace.classList.toggle('is-visible');
+        console.log(pokemon);
     };
 
     return {
@@ -97,23 +97,6 @@ function printArrayDetails(list) {
 
 pokemonRepository.add({name: 'Ninetales', height: 1.1, types: ['Fire']});
 printArrayDetails(pokemonRepository.getAll());
-
-
-
-
-// let testObject = {
-//     name: 'Ninetales',
-//     height: 1.1,
-//     types: ['Fire']
-// };
-
-// let compareList = JSON.stringify(["height","name","types"]);
-// let stringifyList = JSON.stringify(Object.keys(testObject).sort());
-
-// console.log(compareList);
-// console.log(stringifyList);
-// console.log(compareList === stringifyList);
-
 
 // ************************** OLD CODE BELOW ************************** 
 
@@ -154,29 +137,6 @@ printArrayDetails(pokemonRepository.getAll());
 //         types: ['Electric', 'Flying']
 //     },
 // ];
-
-// function printArrayDetails(list) {
-//     for (let i = 0; i < list.length; i++) {
-
-//         // Writes a special message if the pokemon's height is greater than 2m
-//         if (list[i].height > 2) {
-//             document.write(
-//                 `The height of ${list[i].name} is ${list[i].height}m. WOW, that's big!`
-//                 );
-//             document.write("<br>");
-//             document.write("<br>");
-    
-//         // Writes the height of the pokemon and their name
-//         } else {
-//             document.write(
-//                 `The height of ${list[i].name} is ${list[i].height}m.`
-//                 );
-//             document.write("<br>");
-//             document.write("<br>");
-//         } 
-    
-//     }
-// }
 
 // printArrayDetails(pokemonList);
 // let testList = [
