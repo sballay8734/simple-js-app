@@ -50,22 +50,6 @@ let pokemonRepository = (function () {
         });
     }
 
-    function loadList() {
-        return fetch(apiURL).then((response) => {
-            return response.json();
-        }).then((json) => {
-            json.results.forEach((item) => {
-                let pokemon = {
-                    name: item.name,
-                    detailsUrl: item.url 
-                };
-                add(pokemon);
-            });
-        }).catch((error) => {
-            console.error(error);
-        })
-    }
-
     function loadDetails(item) {
         let url = item.detailsUrl;
         return fetch(url).then((response) => {
@@ -79,6 +63,38 @@ let pokemonRepository = (function () {
         })
     }
 
+    function loadList() {
+        return fetch(apiURL)
+        .then(response => response.json())
+        .then((json) => {
+            json.results.forEach((item) => {
+                let pokemon = {
+                    name: item.name,
+                    detailsUrl: item.url
+                }
+                add(pokemon)
+            })
+        }).catch(error => console.error(error))
+    }
+
+
+    // function loadList() {
+    //     return fetch(apiURL).then((response) => {
+    //         return response.json();
+    //     }).then((json) => {
+    //         json.results.forEach((item) => {
+    //             let pokemon = {
+    //                 name: item.name,
+    //                 detailsUrl: item.url 
+    //             };
+    //             add(pokemon);
+    //         });
+    //     }).catch((error) => {
+    //         console.error(error);
+    //     })
+    // }
+
+
     return {
         getAll: getAll,
         addListItem: addListItem,
@@ -90,6 +106,8 @@ let pokemonRepository = (function () {
     };
 
 })();
+
+// console.log(pokemonRepository.loadList());
 
 pokemonRepository.loadList().then(() => {
     pokemonRepository.getAll().forEach((pokemon) => {
