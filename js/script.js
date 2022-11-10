@@ -3,30 +3,23 @@ let pokemonRepository = (function () {
     let pokemonList = [];
     let apiURL = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-    // returns pokemon list of objects
-    // function titleCase() {
-    //     return str.replace(
-    //         /\w\S*/g,
-    //         function(txt) {
-    //           return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    //         }
-    //       );
-    // }
+    function loadList() {
+        return fetch(apiURL)
+        .then(response => response.json())
+        .then((json) => {
+            json.results.forEach((item) => {
+                let pokemon = {
+                    name: item.name,
+                    detailsUrl: item.url
+                }
+                add(pokemon)
+                // console.log(pokemon)
+            })
+        }).catch(error => console.error(error))
+    }
 
     function getAll() {
         return pokemonList;
-    }
-
-    function add(object) {
-        if ((typeof object === 'object')) {
-            object = {
-                name: object.name,
-                detailsUrl: object.detailsUrl
-            }
-            pokemonList.push(object);
-        } else {
-            return "Incorrect Format";
-        };
     }
 
     function addListItem(pokemon) {
@@ -63,36 +56,17 @@ let pokemonRepository = (function () {
         })
     }
 
-    function loadList() {
-        return fetch(apiURL)
-        .then(response => response.json())
-        .then((json) => {
-            json.results.forEach((item) => {
-                let pokemon = {
-                    name: item.name,
-                    detailsUrl: item.url
-                }
-                add(pokemon)
-            })
-        }).catch(error => console.error(error))
+    function add(object) {
+        if ((typeof object === 'object')) {
+            object = {
+                name: object.name,
+                detailsUrl: object.detailsUrl
+            }
+            pokemonList.push(object);
+        } else {
+            return "Incorrect Format";
+        };
     }
-
-
-    // function loadList() {
-    //     return fetch(apiURL).then((response) => {
-    //         return response.json();
-    //     }).then((json) => {
-    //         json.results.forEach((item) => {
-    //             let pokemon = {
-    //                 name: item.name,
-    //                 detailsUrl: item.url 
-    //             };
-    //             add(pokemon);
-    //         });
-    //     }).catch((error) => {
-    //         console.error(error);
-    //     })
-    // }
 
 
     return {
