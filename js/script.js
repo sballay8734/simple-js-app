@@ -18,6 +18,18 @@ let pokemonRepository = (function () {
         }).catch(error => console.error(error))
     }
 
+    function add(object) {
+        if ((typeof object === 'object')) {
+            object = {
+                name: object.name,
+                detailsUrl: object.detailsUrl
+            }
+            pokemonList.push(object);
+        } else {
+            return "Incorrect Format";
+        };
+    }
+
     function getAll() {
         return pokemonList;
     }
@@ -38,34 +50,24 @@ let pokemonRepository = (function () {
     }
 
     function showDetails(pokemon) {
-        loadDetails(pokemon).then(() => {
-            console.log(pokemon);
-        });
+        loadDetails(pokemon)
+        .then(() => console.log(pokemon))
+        // loadDetails(pokemon).then(() => {
+        //     console.log(pokemon);
+        // });
     }
 
     function loadDetails(item) {
         let url = item.detailsUrl;
         return fetch(url).then((response) => {
             return response.json();
-        }).then((details) => {
-            item.imageUrl = details.sprites.front_default;
-            item.height = details.height;
-            item.types = details.types;
+        }).then((json) => {
+            item.imageUrl = json.sprites.front_default;
+            item.height = json.height;
+            item.types = json.types;
         }).catch((error) => {
             console.error(error)
         })
-    }
-
-    function add(object) {
-        if ((typeof object === 'object')) {
-            object = {
-                name: object.name,
-                detailsUrl: object.detailsUrl
-            }
-            pokemonList.push(object);
-        } else {
-            return "Incorrect Format";
-        };
     }
 
 
