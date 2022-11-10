@@ -3,9 +3,19 @@ let pokemonRepository = (function () {
     let pokemonList = [];
     let apiURL = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
+
+    // Not working. Don't know why.
     function loadList() {
         return fetch(apiURL)
-        .then(response => response.json())
+        .then((res) => {
+            if (res.ok) {
+                console.log('Success')
+            } else {
+                console.log("Response Failed")
+            }
+            
+        })
+        .then(res => res.json())
         .then((json) => {
             json.results.forEach((item) => {
                 let pokemon = {
@@ -13,10 +23,25 @@ let pokemonRepository = (function () {
                     detailsUrl: item.url
                 }
                 add(pokemon)
-                // console.log(pokemon)
+                console.log(pokemon)
             })
         }).catch(error => console.error(error))
     }
+
+    // function loadList() {
+    //     return fetch(apiURL)
+    //     .then(response => response.json())
+    //     .then((json) => {
+    //         json.results.forEach((item) => {
+    //             let pokemon = {
+    //                 name: item.name,
+    //                 detailsUrl: item.url
+    //             }
+    //             add(pokemon)
+    //             // console.log(pokemon)
+    //         })
+    //     }).catch(error => console.error(error))
+    // }
 
     function add(object) {
         if ((typeof object === 'object')) {
@@ -83,13 +108,13 @@ let pokemonRepository = (function () {
 
 })();
 
-// console.log(pokemonRepository.loadList());
+console.log(pokemonRepository.loadList());
 
-pokemonRepository.loadList().then(() => {
-    pokemonRepository.getAll().forEach((pokemon) => {
-        pokemonRepository.addListItem(pokemon);
-    });
-});
+// pokemonRepository.loadList().then(() => {
+//     pokemonRepository.getAll().forEach((pokemon) => {
+//         pokemonRepository.addListItem(pokemon);
+//     });
+// });
 
 
 
