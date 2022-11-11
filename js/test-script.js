@@ -1,59 +1,58 @@
-let fullClassList = [
-    {
-        firstName: 'John',
-        middleName: '',
-        lastName: 'Smith',
-        preferredName: 'JJ', 
-        gender: 'male',
-        birthDate: '10242012',
-        // age: function {calculate from birthDate}
-        track: 1,
+let fullClassList = [{
+    firstName: 'John',
+    middleName: '',
+    lastName: 'Smith',
+    preferredName: 'JJ',
+    gender: 'male',
+    birthDate: '10242012',
+    // age: function {calculate from birthDate}
+    track: 1,
 
-        houseNumber: 14,
-        roadName: 'Cool Road Name Dr.',
-        aptNumber: 'C3',
-        town: 'Jacksonville',
-        state: 'PA', 
-        zipCode: 12345,
+    houseNumber: 14,
+    roadName: 'Cool Road Name Dr.',
+    aptNumber: 'C3',
+    town: 'Jacksonville',
+    state: 'PA',
+    zipCode: 12345,
 
-        PrimaryContact1Name: 'Jane Doe',
-        PrimaryContact1CellPhone: '5559995555',
-        PrimaryContact1WorkPhone: '',
-        PrimaryContact1Email: '',
-        PC1RelationToChild: 'Mother',
+    PrimaryContact1Name: 'Jane Doe',
+    PrimaryContact1CellPhone: '5559995555',
+    PrimaryContact1WorkPhone: '',
+    PrimaryContact1Email: '',
+    PC1RelationToChild: 'Mother',
 
-        PrimaryContact2Name: '',
-        PrimaryContact2CellPhone: '',
-        PrimaryContact2WorkPhone: '',
-        PrimaryContact2Email: '',
-        PC2RelationToChild: 'Father',  
+    PrimaryContact2Name: '',
+    PrimaryContact2CellPhone: '',
+    PrimaryContact2WorkPhone: '',
+    PrimaryContact2Email: '',
+    PC2RelationToChild: 'Father',
 
-        emergencyContact1Name: 'Jane Smith',
-        emergencyContact1CellPhone: '5559995235',
-        emergencyContact1WorkPhone: '',
-        emergencyContact1Email: '',
-        EC1RelationToChild: 'Aunt', 
+    emergencyContact1Name: 'Jane Smith',
+    emergencyContact1CellPhone: '5559995235',
+    emergencyContact1WorkPhone: '',
+    emergencyContact1Email: '',
+    EC1RelationToChild: 'Aunt',
 
-        emergencyContact2Name: '',
-        emergencyContact2CellPhone: '',
-        emergencyContact2WorkPhone: '',
-        emergencyContact2Email: '',
-        EC2RelationToChild: 'Uncle',
+    emergencyContact2Name: '',
+    emergencyContact2CellPhone: '',
+    emergencyContact2WorkPhone: '',
+    emergencyContact2Email: '',
+    EC2RelationToChild: 'Uncle',
 
-        allergies: ['peanuts', 'eggs'],
-        potentiallyLifeThreatening: true,
-        medicine: ['Epi pen', 'inhaler'],
-        epiPenOnSite: true,
-        otherMedicineOnSite: false,
-        additionalHealthInfo: '',
+    allergies: ['peanuts', 'eggs'],
+    potentiallyLifeThreatening: true,
+    medicine: ['Epi pen', 'inhaler'],
+    epiPenOnSite: true,
+    otherMedicineOnSite: false,
+    additionalHealthInfo: '',
 
-        // Doctor info goes here
+    // Doctor info goes here
 
 
-    },
-    {},
-    {},
-    {},
+  },
+  {},
+  {},
+  {},
 ]
 // console.log(Object.keys(fullClassList[0]));
 
@@ -148,7 +147,7 @@ let fullClassList = [
 // let friendsList = ['Aaron', 'John', 'Chris', 'James', 'Megan'];
 // for (let i = 0; i < friendsList.length; i++) {
 //     console.log(friendsList[i]);
-    
+
 // }
 
 // let friendAge = [
@@ -187,7 +186,7 @@ let fullClassList = [
 //                 );
 //             document.write("<br>");
 //             document.write("<br>")
-    
+
 //         // Writes the height of the pokemon and their name
 //         } else {
 //             document.write(
@@ -196,7 +195,7 @@ let fullClassList = [
 //             document.write("<br>");
 //             document.write("<br>")
 //         } 
-    
+
 //     }
 // }
 
@@ -224,42 +223,41 @@ let fullClassList = [
 // });
 
 
-pokemonList = [
-    {
-        name: 'Bulbasaur', 
-        height: 0.7, 
-        types: ['Grass', 'Poison']
-    },
-    {
-        name: 'Charmander', 
-        height: 0.6, 
-        types: ['Fire']
-    },
-    {
-        name: 'Squirtle', 
-        height: 0.5, 
-        types: ['Water']
-    },
-    {
-        name: 'Arcanine', 
-        height: 1.9, 
-        types: ['Fire']
-    },
-    {
-        name: 'Gengar', 
-        height: 1.5, 
-        types: ['Ghost', 'Poison']
-    },
-    {
-        name: 'Gyarados', 
-        height: 6.5, 
-        types: ['Water', 'Flying']
-    },
-    {
-        name: 'Zapdos', 
-        height: 1.6, 
-        types: ['Electric', 'Flying']
-    },
+pokemonList = [{
+    name: 'Bulbasaur',
+    height: 0.7,
+    types: ['Grass', 'Poison']
+  },
+  {
+    name: 'Charmander',
+    height: 0.6,
+    types: ['Fire']
+  },
+  {
+    name: 'Squirtle',
+    height: 0.5,
+    types: ['Water']
+  },
+  {
+    name: 'Arcanine',
+    height: 1.9,
+    types: ['Fire']
+  },
+  {
+    name: 'Gengar',
+    height: 1.5,
+    types: ['Ghost', 'Poison']
+  },
+  {
+    name: 'Gyarados',
+    height: 6.5,
+    types: ['Water', 'Flying']
+  },
+  {
+    name: 'Zapdos',
+    height: 1.6,
+    types: ['Electric', 'Flying']
+  },
 ];
 
 
@@ -335,49 +333,52 @@ pokemonList = [
 
 
 let globalVar = (function () {
-    let player1 = "John"; // would be retrieved from input
-    let player2 = "Mary"; // would be retrieved from input
-    let player1Wins = 0;
-    let player2Wins = 0;
-    let gameCounter = 0;
+  let player1 = "John"; // would be retrieved from input
+  let player2 = "Mary"; // would be retrieved from input
+  let player1Wins = 0;
+  let player2Wins = 0;
+  let gameCounter = 0;
 
-// Proof of concept
-    function updatePlayerScore(player) {
-        if (player === "John") {
-            player1Wins++;
-            return player1Wins;
-        } else if (player === "Mary") {
-            player2Wins++;
-            return player2Wins;
-        } else {
-            return "Something went wrong!";
-        };
-    }
-    function getWinner() {
-        // also proof of concept (Choices would be retrieved from input)
-        player1Choice = "paper";
-        player2Choice = "rock";
-
-        if (player1Choice==="rock" && player2Choice==="paper") {
-            updatePlayerScore(player2);
-        } else {
-            updatePlayerScore(player1);
-        }
-    }
-    function updateGameCounter() {
-        gameCounter++;
-        return gameCounter;
-    }
-    function getScore() {
-        return "Player 1 Wins: " + player1Wins + "\nPlayer 2 Wins: " + player2Wins;
-    }
-
-    return {
-        updatePlayerScore,
-        updateGameCounter,
-        getScore,
-        getWinner
+  // Proof of concept
+  function updatePlayerScore(player) {
+    if (player === "John") {
+      player1Wins++;
+      return player1Wins;
+    } else if (player === "Mary") {
+      player2Wins++;
+      return player2Wins;
+    } else {
+      return "Something went wrong!";
     };
+  }
+
+  function getWinner() {
+    // also proof of concept (Choices would be retrieved from input)
+    player1Choice = "paper";
+    player2Choice = "rock";
+
+    if (player1Choice === "rock" && player2Choice === "paper") {
+      updatePlayerScore(player2);
+    } else {
+      updatePlayerScore(player1);
+    }
+  }
+
+  function updateGameCounter() {
+    gameCounter++;
+    return gameCounter;
+  }
+
+  function getScore() {
+    return "Player 1 Wins: " + player1Wins + "\nPlayer 2 Wins: " + player2Wins;
+  }
+
+  return {
+    updatePlayerScore,
+    updateGameCounter,
+    getScore,
+    getWinner
+  };
 })();
 
 globalVar.getWinner();
@@ -386,63 +387,3 @@ globalVar.getWinner();
 globalVar.getWinner();
 
 console.log(globalVar.getScore());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
