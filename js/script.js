@@ -3,45 +3,27 @@ let pokemonRepository = (function () {
     let pokemonList = [];
     let apiURL = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-
-    // Not working. Don't know why.
     function loadList() {
         return fetch(apiURL)
         .then((res) => {
             if (res.ok) {
-                console.log('Success')
+                console.log("Success")
+                return res.json()
             } else {
-                console.log("Response Failed")
+                console.error("Error")
             }
-            
-        })
-        .then(res => res.json())
-        .then((json) => {
-            json.results.forEach((item) => {
+            return res.json()
+        }).then((json) => {
+            json.results.forEach((result) => {
                 let pokemon = {
-                    name: item.name,
-                    detailsUrl: item.url
+                    name: result.name,
+                    detailsUrl: result.url
                 }
                 add(pokemon)
-                console.log(pokemon)
+                // console.log(pokemon.name)
             })
-        }).catch(error => console.error(error))
+        }).catch(e => console.error(e))
     }
-
-    // function loadList() {
-    //     return fetch(apiURL)
-    //     .then(response => response.json())
-    //     .then((json) => {
-    //         json.results.forEach((item) => {
-    //             let pokemon = {
-    //                 name: item.name,
-    //                 detailsUrl: item.url
-    //             }
-    //             add(pokemon)
-    //             // console.log(pokemon)
-    //         })
-    //     }).catch(error => console.error(error))
-    // }
 
     function add(object) {
         if ((typeof object === 'object')) {
@@ -77,16 +59,13 @@ let pokemonRepository = (function () {
     function showDetails(pokemon) {
         loadDetails(pokemon)
         .then(() => console.log(pokemon))
-        // loadDetails(pokemon).then(() => {
-        //     console.log(pokemon);
-        // });
     }
 
     function loadDetails(item) {
         let url = item.detailsUrl;
-        return fetch(url).then((response) => {
-            return response.json();
-        }).then((json) => {
+        return fetch(url)
+        .then(response => response.json())
+        .then((json) => {
             item.imageUrl = json.sprites.front_default;
             item.height = json.height;
             item.types = json.types;
@@ -95,7 +74,7 @@ let pokemonRepository = (function () {
         })
     }
 
-
+    // return functions
     return {
         getAll: getAll,
         addListItem: addListItem,
@@ -108,14 +87,14 @@ let pokemonRepository = (function () {
 
 })();
 
-console.log(pokemonRepository.loadList());
+// console.log(pokemonRepository.loadList());
 
-// pokemonRepository.loadList().then(() => {
-//     pokemonRepository.getAll().forEach((pokemon) => {
-//         pokemonRepository.addListItem(pokemon);
-//     });
-// });
+pokemonRepository.loadList().then(() => {
+    pokemonRepository.getAll().forEach((pokemon) => {
+        pokemonRepository.addListItem(pokemon);
+    });
+});
 
 
 
-// ************************** OLD CODE BELOW ************************** 
+// ************************** OLD CODE BELOW **************************
