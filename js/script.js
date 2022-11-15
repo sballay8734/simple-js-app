@@ -12,7 +12,6 @@ let pokemonRepository = (function () {
         } else {
           console.error("Error")
         }
-        return res.json()
       }).then((json) => {
         json.results.forEach((result) => {
           let pokemon = {
