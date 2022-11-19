@@ -1,29 +1,13 @@
-.fire {
-  background-color: orange;
+html {
+  width: 100%;
 }
 
-.grass {
-  background-color: green;
-}
-
-.poison {
-  background-color: red;
-}
-
-.water {
-  background-color: aqua;
-}
-
-.ghost {
-  background-color: blueviolet;
-}
-
-.flying {
-  background-color: white;
-}
-
-.electric {
-  background-color: yellow;
+body {
+  padding: 0 4rem;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
@@ -33,6 +17,7 @@
 
 main {
   border: 2px solid black;
+  width: 100%;
 }
 
 .pokemon-list {
@@ -55,4 +40,47 @@ main {
 
 .is-visible {
   display: block;
+}
+
+#modal-container {
+  /* display: none; */
+
+  /* Below to be moved to is-visible */
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 2rem;
+  background-color: rgb(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  text-align: center;
+}
+
+#modal-container.is-visible {
+
+}
+
+.modal {
+  margin: auto;
+  background-color: white;
+  padding: 1rem 1rem;
+  border-radius: 0.2rem;
+  width: 100%;
+  max-width: 700px;
+  text-align: left;
+}
+
+.close-modal {
+  float: right;
+  background: none;
+  border: none;
+  font-size: medium;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.pokemon-img {
+  text-align: center;
 }

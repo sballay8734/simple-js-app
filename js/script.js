@@ -24,6 +24,7 @@ let pokemonRepository = (function () {
       }).catch(e => console.error(e))
   }
 
+  // Add pokemon to pokemonList ------------------------------------------------
   function add(object) {
     if ((typeof object === 'object')) {
       object = {
@@ -36,10 +37,12 @@ let pokemonRepository = (function () {
     };
   }
 
+  // Get List of all Pokemon ---------------------------------------------------
   function getAll() {
     return pokemonList;
   }
 
+  // Add pokemon to page -------------------------------------------------------
   function addListItem(pokemon) {
     let listSelector = document.querySelector('ul');
     let listItem = document.createElement('li');
@@ -51,15 +54,18 @@ let pokemonRepository = (function () {
     addListener(buttonElement, pokemon);
   }
 
+  // Add Event Listener To Each List Element -----------------------------------
   function addListener(buttonElement, pokemon) {
     buttonElement.addEventListener('click', () => showDetails(pokemon));
   }
 
+  // Show Details of Each Pokemon and Show Modal -------------------------------
   function showDetails(pokemon) {
     loadDetails(pokemon)
-      .then(() => console.log(pokemon))
+      .then(showModal(pokemon.name, pokemon.height, pokemon.imageUrl))
   }
 
+  // Loads Each Pokemon then Fed Into Show Modal Function ----------------------
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url)
@@ -71,6 +77,20 @@ let pokemonRepository = (function () {
       }).catch((error) => {
         console.error(error)
       })
+  }
+
+  // Show Modal ----------------------------------------------------------------
+  function showModal(name, height, img) {
+    let modalContainer = document.querySelector('#modal-container');
+
+    // clear existing content
+    modalContainer.innerHTML = '';
+
+    // create content
+    let modal = document.createElement('div');
+    let
+
+
   }
 
   // return functions
@@ -86,14 +106,8 @@ let pokemonRepository = (function () {
 
 })();
 
-// console.log(pokemonRepository.loadList());
-
 pokemonRepository.loadList().then(() => {
   pokemonRepository.getAll().forEach((pokemon) => {
     pokemonRepository.addListItem(pokemon);
   });
 });
-
-
-
-// ************************** OLD CODE BELOW **************************
