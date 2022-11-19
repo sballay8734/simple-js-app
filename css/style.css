@@ -1,13 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   padding: 0 4rem;
   width: 100%;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
 }
 
 .title {
@@ -43,9 +46,10 @@ main {
 }
 
 #modal-container {
-  /* display: none; */
+  display: none;
+}
 
-  /* Below to be moved to is-visible */
+#modal-container.modal-is-visible {
   position: fixed;
   top: 0;
   left: 0;
@@ -56,10 +60,8 @@ main {
 
   display: grid;
   text-align: center;
-}
 
-#modal-container.is-visible {
-
+  overflow: auto;
 }
 
 .modal {
@@ -69,11 +71,14 @@ main {
   border-radius: 0.2rem;
   width: 100%;
   max-width: 700px;
-  text-align: left;
+  text-align: center;
+  position: relative;
 }
 
 .close-modal {
-  float: right;
+  position: absolute;
+  right: 0;
+  margin-right: 1rem;
   background: none;
   border: none;
   font-size: medium;
@@ -82,5 +87,21 @@ main {
 }
 
 .pokemon-img {
+  margin: 0 auto;
+  height: 100px;
+}
+
+.img-container {
+  width: 100%;
   text-align: center;
+}
+
+.modal p {
+  font-size: x-large;
+  margin: 0;
+}
+
+.modal h1 {
+  margin: 0;
+  margin-bottom: 1rem;
 }
