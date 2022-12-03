@@ -51,7 +51,7 @@ let pokemonRepository = (function () {
 
     let buttonElement = document.createElement('button');
     buttonElement.classList.add('btn');
-    buttonElement.classList.add('btn-primary');
+    buttonElement.classList.add('btn-info');
     buttonElement.setAttribute('data-bs-target', '#modal');
     buttonElement.setAttribute('data-bs-toggle', 'modal');
     buttonElement.innerText = pokemon.name.toUpperCase();
