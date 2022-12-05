@@ -20,10 +20,23 @@
 
 <body>
   <header>
+    <!-- NavBar controls -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a href="#" class="navbar-brand">POKEDEX</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Content -->
+    </nav>
+
     <div class="title">POKEDEX</div>
   </header>
 
-  <main>
+  <main class="mx-auto">
 
     <!-- List -->
     <ul class="pokemon-list list-group"></ul>
@@ -35,7 +48,8 @@
           <!-- modal header -->
           <div class="modal-header">
             <h1 id="pokemon-name" class="pokemon-name modal-title"></h1>
-            <button type="button" id="close-modal" class="btn close-modal" data-bs-dismiss="modal" aria-label="Close">Close</button>
+            <button type="button" id="close-modal" class="btn close-modal"
+              data-bs-dismiss="modal" aria-label="Close">Close</button>
           </div>
           <!-- modal body -->
           <div class="modal-body">
@@ -48,13 +62,10 @@
         </div>
       </div>
     </div>
-
   </main>
 
   <footer>
   </footer>
-
-
 
 
   <!-- ------------------------ SCRIPTS ------------------------ -->
