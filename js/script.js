@@ -1,7 +1,7 @@
 let pokemonRepository = (function () {
 
   let pokemonList = [];
-  let apiURL = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiURL = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
 
   function loadList() {
     return fetch(apiURL)
@@ -44,7 +44,7 @@ let pokemonRepository = (function () {
 
   // Add pokemon to page -------------------------------------------------------
   function addListItem(pokemon) {
-    let listSelector = document.querySelector('ul');
+    let listSelector = document.querySelector('.pokemon-list');
 
     let listItem = document.createElement('li');
     listItem.classList.add('list-group-item');
@@ -88,9 +88,6 @@ let pokemonRepository = (function () {
   }
 
   // Show Modal ----------------------------------------------------------------
-
-  // Global
-
   function showModal(name, height, imgUrl, types) {
 
     // pokemon name
@@ -99,8 +96,8 @@ let pokemonRepository = (function () {
 
     // pokemon height
     let pokemonHeight = document.querySelector('.pokemon-height');
-    pokemonHeight.innerText = "Height: "+ height;
-    
+    pokemonHeight.innerText = "Height: " + height;
+
     // pokemon image
     let pokemonImage = document.querySelector('.pokemon-img');
     pokemonImage.setAttribute("src", imgUrl);
@@ -113,6 +110,12 @@ let pokemonRepository = (function () {
 
   }
 
+  // Event listeners -----------------------------------------------------------
+  // let showGenOne = document.querySelector('.link-1');
+  // showGenOne.addEventListener('click', () => {
+  //   apiURL = 'https://pokeapi.co/api/v2/pokemon/?limit=153';
+  // })
+
   // return functions
   return {
     getAll: getAll,
@@ -122,7 +125,8 @@ let pokemonRepository = (function () {
     addListener: addListener,
     loadList: loadList,
     loadDetails: loadDetails,
-    showModal: showModal
+    showModal: showModal,
+    // getPokemonID: getPokemonID
   };
 
 })();
