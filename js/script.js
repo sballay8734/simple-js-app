@@ -113,10 +113,59 @@ let pokemonRepository = (function () {
     typesList = [];
     types.forEach((type) => typesList.push(type.type.name));
     pokemonTypes.innerText = "Type(s): " + typesList;
-
   }
 
-  // return functions
+  // Event Listeners -----------------------------------------------------------
+  let gen1Button = document.querySelector('.link-1');
+  let gen2Button = document.querySelector('.link-2');
+  let gen3Button = document.querySelector('.link-3');
+  let gen4Button = document.querySelector('.link-4');
+
+  function clearContent() {
+    pokemonList = [];
+    document.querySelector('.pokemon-list').innerHTML = '';
+    let headerText = document.querySelector('.title');
+    headerText.innerText = 'GENERATION 1';
+  }
+
+  function setHeader(number) {
+    let headerText = document.querySelector('.title');
+    headerText.innerText = 'GENERATION ' + number.toString();
+  }
+
+  function callLoad(url) {
+    pokemonRepository.loadList(url).then(() => {
+      pokemonRepository.getAll().forEach((pokemon) => {
+        pokemonRepository.addListItem(pokemon);
+      });
+    });
+  }
+
+  gen1Button.addEventListener('click', () => {
+    clearContent();
+    setHeader(1)
+    callLoad(apiURLGen1);
+  })
+
+  gen2Button.addEventListener('click', () => {
+    clearContent();
+    setHeader(2)
+    callLoad(apiURLGen2);
+  })
+
+  gen3Button.addEventListener('click', () => {
+    clearContent();
+    setHeader(3)
+    callLoad(apiURLGen3);
+  })
+
+  gen4Button.addEventListener('click', () => {
+    clearContent();
+    setHeader(4)
+    callLoad(apiURLGen4);
+  })
+
+  // RETURN FUNCTIONS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   return {
     getAll: getAll,
     addListItem: addListItem,
@@ -126,13 +175,12 @@ let pokemonRepository = (function () {
     loadList: loadList,
     loadDetails: loadDetails,
     showModal: showModal,
-
   };
 
 })();
 
 let headerText = document.querySelector('.title');
-headerText.innerText = 'GENERATION 1'
+headerText.innerText = 'GENERATION 1';
 
 pokemonRepository.loadList(apiURLGen1).then(() => {
   pokemonRepository.getAll().forEach((pokemon) => {
