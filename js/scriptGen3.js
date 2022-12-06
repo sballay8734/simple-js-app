@@ -132,9 +132,9 @@ let pokemonRepository = (function () {
 })();
 
 let headerText = document.querySelector('.title');
-headerText.innerText = 'GENERATION 1'
+headerText.innerText = 'GENERATION 3'
 
-pokemonRepository.loadList(apiURLGen1).then(() => {
+pokemonRepository.loadList(apiURLGen3).then(() => {
   pokemonRepository.getAll().forEach((pokemon) => {
     pokemonRepository.addListItem(pokemon);
   });
