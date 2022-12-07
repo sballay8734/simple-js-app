@@ -32,7 +32,7 @@ let pokemonRepository = (function () {
   function getID(url) {
     return fetch(url)
     .then((res) => res.json())
-    .then((json) => json.id)
+    .then((json) => console.log(json.id)) // If I log it here, the ID is printed
   }
 
   // Add pokemon to pokemonList ------------------------------------------------
@@ -41,7 +41,7 @@ let pokemonRepository = (function () {
       object = {
         name: object.name,
         detailsUrl: object.detailsUrl,
-        pokeID: getID(object.detailsUrl) // this is coming back as pending
+        pokeID: getID(object.detailsUrl) // But this is coming back as pending
       }
       pokemonList.push(object);
     } else {
