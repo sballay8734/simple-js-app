@@ -41,7 +41,7 @@ let pokemonRepository = (function () {
       object = {
         name: object.name,
         detailsUrl: object.detailsUrl,
-        pokeID: getID(object.detailsUrl)
+        pokeID: getID(object.detailsUrl) // this is coming back as pending
       }
       pokemonList.push(object);
     } else {
