@@ -97,3 +97,8 @@ p {
 .list-group-item button {
   background-color: rgb(34, 144, 82);
 }
+
+.pokeNumber {
+  background-color: red;
+  width: 20px;
+}

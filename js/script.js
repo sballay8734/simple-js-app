@@ -22,12 +22,17 @@ let pokemonRepository = (function () {
         json.results.forEach((result) => {
           let pokemon = {
             name: result.name,
-            detailsUrl: result.url
+            detailsUrl: result.url,
           }
           add(pokemon)
-          // console.log(pokemon.name)
         })
       }).catch(e => console.error(e))
+  }
+
+  function getID(url) {
+    return fetch(url)
+    .then((res) => res.json())
+    .then((json) => json.id)
   }
 
   // Add pokemon to pokemonList ------------------------------------------------
@@ -35,7 +40,8 @@ let pokemonRepository = (function () {
     if ((typeof object === 'object')) {
       object = {
         name: object.name,
-        detailsUrl: object.detailsUrl
+        detailsUrl: object.detailsUrl,
+        pokeID: getID(object.detailsUrl) // Pending. Why?
       }
       pokemonList.push(object);
     } else {
@@ -55,12 +61,18 @@ let pokemonRepository = (function () {
     let listItem = document.createElement('li');
     listItem.classList.add('list-group-item');
 
+    console.log(pokemon) // PROMISE PENDING HERE
+    // let pokeNumber = document.createElement('span');
+    // pokeNumber.classList.add('pokeNumber');
+    // pokeNumber.innerText = pokemon.pokeID;
+
     let buttonElement = document.createElement('button');
     buttonElement.classList.add('btn');
     buttonElement.classList.add('btn-info');
     buttonElement.setAttribute('data-bs-target', '#modal');
     buttonElement.setAttribute('data-bs-toggle', 'modal');
     buttonElement.innerText = pokemon.name.toUpperCase();
+
 
     listItem.appendChild(buttonElement);
     listSelector.appendChild(listItem);
@@ -76,7 +88,7 @@ let pokemonRepository = (function () {
   // Show Details of Each Pokemon and Show Modal -------------------------------
   function showDetails(pokemon) {
     loadDetails(pokemon)
-      .then(() => showModal(pokemon.name, pokemon.height, pokemon.imageUrl, pokemon.types))
+      .then(() => showModal(pokemon.name, pokemon.height, pokemon.imageUrl, pokemon.types, pokemon.id))
   }
 
   // Loads Each Pokemon then Fed Into Show Modal Function ----------------------
@@ -93,9 +105,8 @@ let pokemonRepository = (function () {
       })
   }
 
-  // Show Modal ----------------------------------------------------------------
+  // Show Modal ****************************************************************
   function showModal(name, height, imgUrl, types) {
-
     // pokemon name
     let pokemonTitleName = document.getElementById('pokemon-name');
     pokemonTitleName.innerText = name.toUpperCase().trim();
@@ -173,6 +184,7 @@ let pokemonRepository = (function () {
     loadList: loadList,
     loadDetails: loadDetails,
     showModal: showModal,
+    getID: getID
   };
 
 })();
