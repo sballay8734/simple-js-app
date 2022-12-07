@@ -124,8 +124,6 @@ let pokemonRepository = (function () {
   function clearContent() {
     pokemonList = [];
     document.querySelector('.pokemon-list').innerHTML = '';
-    let headerText = document.querySelector('.title');
-    headerText.innerText = 'GENERATION 1';
   }
 
   function setHeader(number) {
