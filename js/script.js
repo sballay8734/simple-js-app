@@ -13,10 +13,10 @@ let pokemonRepository = (function () {
     return fetch(apiURL)
       .then((res) => {
         if (res.ok) {
-          console.log("Success")
+          console.log('Success')
           return res.json()
         } else {
-          console.error("Error")
+          console.error('Error')
         }
       }).then((json) => {
         json.results.forEach((result) => {
@@ -39,8 +39,8 @@ let pokemonRepository = (function () {
       }
       pokemonList.push(object);
     } else {
-      return "Incorrect Format";
-    };
+      return 'Incorrect Format';
+    }
   }
 
   // Get List of all Pokemon ---------------------------------------------------
@@ -102,17 +102,17 @@ let pokemonRepository = (function () {
 
     // pokemon height
     let pokemonHeight = document.querySelector('.pokemon-height');
-    pokemonHeight.innerText = "Height: " + height;
+    pokemonHeight.innerText = 'Height: ' + height;
 
     // pokemon image
     let pokemonImage = document.querySelector('.pokemon-img');
-    pokemonImage.setAttribute("src", imgUrl);
+    pokemonImage.setAttribute('src', imgUrl);
 
     // pokemon types
     let pokemonTypes = document.querySelector('.modal-types');
-    typesList = [];
+    let typesList = [];
     types.forEach((type) => typesList.push(type.type.name));
-    pokemonTypes.innerText = "Type(s): " + typesList;
+    pokemonTypes.innerText = 'Type(s): ' + typesList;
   }
 
   // Event Listeners -----------------------------------------------------------
