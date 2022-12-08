@@ -83,8 +83,8 @@ let pokemonRepository = (function () {
 
     let idSpan = document.createElement('span');
     idSpan.classList.add('float-right')
-    pokeID = await pokemon.pokeID.then((res) => res);
-    idSpan.innerText = "#" + pokeID;
+    let pokeID = await pokemon.pokeID.then((res) => res);
+    idSpan.innerText = '#' + pokeID;
     buttonElement.appendChild(idSpan);
 
 
@@ -102,7 +102,7 @@ let pokemonRepository = (function () {
   // Show Details of Each Pokemon and Show Modal -------------------------------
   function showDetails(pokemon) {
     loadDetails(pokemon)
-      .then(() => showModal(pokemon.name, pokemon.height, pokemon.imageUrl, pokemon.types, pokemon.pokeID))
+      .then(() => showModal(pokemon.name, pokemon.height, pokemon.imageUrl, pokemon.types))
   }
 
   // Loads Each Pokemon then Fed Into Show Modal Function ----------------------
@@ -120,7 +120,7 @@ let pokemonRepository = (function () {
   }
 
   // Show Modal ****************************************************************
-  function showModal(name, height, imgUrl, types, id) {
+  function showModal(name, height, imgUrl, types) {
     // pokemon name
     let pokemonTitleName = document.getElementById('pokemon-name');
     pokemonTitleName.innerText = name.toUpperCase().trim();
