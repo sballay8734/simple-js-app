@@ -134,10 +134,14 @@ let pokemonRepository = (function () {
     let typesList = [];
     types.forEach((type) => typesList.push(type.type.name));
     pokemonTypes.innerText = 'Type(s): ' + typesList;
+    
 
-    // let pokemonID = document.querySelector('.modal-id');
-    // pokemonID.innerText = id.then((data) => data);
-    console.log(id) // Also working...
+    // SO CONFUSED HERE
+    id.then((res) => console.log(res)) // if this works?
+
+    let pokemonID = document.querySelector('.modal-id');
+    pokemonID.innerText = id.then((res) => res); // then why doesn't this work?
+
   }
 
   // Event Listeners -----------------------------------------------------------
