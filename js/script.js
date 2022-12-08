@@ -29,21 +29,31 @@ let pokemonRepository = (function () {
       }).catch(e => console.error(e))
   }
 
-  function getID(url) {
-    return fetch(url)
-    .then((res) => res.json())
-    .then((json) => console.log(json.id)) // If I log it here, the ID is printed
+  async function getID(url) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`)
+      }
+      const json = await response.json();
+      console.log(json.id) // Why does this work
+      return json.id; // But this doesn't?
+    }
+    catch(error) {
+      console.error(`Could not get ID: ${error}`);
+    }
   }
 
   // Add pokemon to pokemonList ------------------------------------------------
   function add(object) {
-    if ((typeof object === 'object')) {
+    if ((typeof object === 'object')) { 
       object = {
         name: object.name,
         detailsUrl: object.detailsUrl,
         pokeID: getID(object.detailsUrl) // But this is coming back as pending
       }
       pokemonList.push(object);
+      console.log(object.pokeID) // Pending....... ugh WHY?!
     } else {
       return 'Incorrect Format';
     }
@@ -61,7 +71,7 @@ let pokemonRepository = (function () {
     let listItem = document.createElement('li');
     listItem.classList.add('list-group-item');
 
-    console.log(pokemon) // PROMISE PENDING HERE
+    // console.log(pokemon.pokeID) // PROMISE PENDING HERE
     // let pokeNumber = document.createElement('span');
     // pokeNumber.classList.add('pokeNumber');
     // pokeNumber.innerText = pokemon.pokeID;
@@ -88,7 +98,7 @@ let pokemonRepository = (function () {
   // Show Details of Each Pokemon and Show Modal -------------------------------
   function showDetails(pokemon) {
     loadDetails(pokemon)
-      .then(() => showModal(pokemon.name, pokemon.height, pokemon.imageUrl, pokemon.types, pokemon.id))
+      .then(() => showModal(pokemon.name, pokemon.height, pokemon.imageUrl, pokemon.types, pokemon.pokeID))
   }
 
   // Loads Each Pokemon then Fed Into Show Modal Function ----------------------
@@ -106,7 +116,7 @@ let pokemonRepository = (function () {
   }
 
   // Show Modal ****************************************************************
-  function showModal(name, height, imgUrl, types) {
+  function showModal(name, height, imgUrl, types, id) {
     // pokemon name
     let pokemonTitleName = document.getElementById('pokemon-name');
     pokemonTitleName.innerText = name.toUpperCase().trim();
@@ -124,6 +134,14 @@ let pokemonRepository = (function () {
     let typesList = [];
     types.forEach((type) => typesList.push(type.type.name));
     pokemonTypes.innerText = 'Type(s): ' + typesList;
+    
+
+    // Problem
+    id.then((res) => console.log(res)) // if this works?
+
+    let pokemonID = document.querySelector('.modal-id');
+    pokemonID.innerText = id.then((res) => res); // then why doesn't this work?
+
   }
 
   // Event Listeners -----------------------------------------------------------
@@ -150,28 +168,26 @@ let pokemonRepository = (function () {
     });
   }
 
-  gen1Button.addEventListener('click', () => {
+  function replaceContent(url, genNumber) {
     clearContent();
-    setHeader(1)
-    callLoad(apiURLGen1);
+    setHeader(genNumber);
+    callLoad(url);
+  }
+
+  gen1Button.addEventListener('click', () => {
+    replaceContent(apiURLGen1, 1);
   })
 
   gen2Button.addEventListener('click', () => {
-    clearContent();
-    setHeader(2)
-    callLoad(apiURLGen2);
+    replaceContent(apiURLGen2, 2);
   })
 
   gen3Button.addEventListener('click', () => {
-    clearContent();
-    setHeader(3)
-    callLoad(apiURLGen3);
+    replaceContent(apiURLGen3, 3)
   })
 
   gen4Button.addEventListener('click', () => {
-    clearContent();
-    setHeader(4)
-    callLoad(apiURLGen4);
+    replaceContent(apiURLGen4, 4)
   })
 
   // RETURN FUNCTIONS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -184,7 +200,6 @@ let pokemonRepository = (function () {
     loadList: loadList,
     loadDetails: loadDetails,
     showModal: showModal,
-    getID: getID
   };
 
 })();
