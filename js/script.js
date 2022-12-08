@@ -13,10 +13,10 @@ let pokemonRepository = (function () {
     return fetch(apiURL)
       .then((res) => {
         if (res.ok) {
-          console.log('Success')
-          return res.json()
+          console.log('Success');
+          return res.json();
         } else {
-          console.error('Error')
+          console.error('Error');
         }
       }).then((json) => {
         json.results.forEach((result) => {
@@ -24,16 +24,16 @@ let pokemonRepository = (function () {
             name: result.name,
             detailsUrl: result.url,
           }
-          add(pokemon)
+          add(pokemon);
         })
-      }).catch(e => console.error(e))
+      }).catch((e) => console.error(e));
   }
 
   async function getID(url) {
     try {
       const response = await fetch(url);
       if (!response.ok) {
-        throw new Error(`HTTP error: ${response.status}`)
+        throw new Error(`HTTP error: ${response.status}`);
       }
       const json = await response.json();
       return json.id;
@@ -45,7 +45,7 @@ let pokemonRepository = (function () {
 
   // Add pokemon to pokemonList ------------------------------------------------
   function add(object) {
-    if ((typeof object === 'object')) { 
+    if (typeof object === 'object') { 
       object = {
         name: object.name,
         detailsUrl: object.detailsUrl,
@@ -109,14 +109,14 @@ let pokemonRepository = (function () {
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url)
-      .then(response => response.json())
+      .then((response) => response.json())
       .then((json) => {
         item.imageUrl = json.sprites.front_default;
         item.height = json.height;
         item.types = json.types;
       }).catch((error) => {
-        console.error(error)
-      })
+        console.error(error);
+      });
   }
 
   // Show Modal ****************************************************************
@@ -196,7 +196,7 @@ let pokemonRepository = (function () {
     addListener: addListener,
     loadList: loadList,
     loadDetails: loadDetails,
-    showModal: showModal,
+    showModal: showModal
   };
 
 })();
