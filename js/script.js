@@ -36,7 +36,8 @@ let pokemonRepository = (function () {
         throw new Error(`HTTP error: ${response.status}`)
       }
       const json = await response.json();
-      return json.id;
+      console.log(json.id) // Why does this work
+      return json.id; // But this doesn't?
     }
     catch(error) {
       console.error(`Could not get ID: ${error}`);
@@ -52,7 +53,7 @@ let pokemonRepository = (function () {
         pokeID: getID(object.detailsUrl) // Pending. Why?
       }
       pokemonList.push(object);
-      console.log(object.pokeID)
+      console.log(object.pokeID) // Pending....... ugh WHY?!
     } else {
       return 'Incorrect Format';
     }
@@ -70,7 +71,7 @@ let pokemonRepository = (function () {
     let listItem = document.createElement('li');
     listItem.classList.add('list-group-item');
 
-    // console.log(pokemon) // PROMISE PENDING HERE
+    // console.log(pokemon.pokeID) // PROMISE PENDING HERE
     // let pokeNumber = document.createElement('span');
     // pokeNumber.classList.add('pokeNumber');
     // pokeNumber.innerText = pokemon.pokeID;
@@ -97,7 +98,7 @@ let pokemonRepository = (function () {
   // Show Details of Each Pokemon and Show Modal -------------------------------
   function showDetails(pokemon) {
     loadDetails(pokemon)
-      .then(() => showModal(pokemon.name, pokemon.height, pokemon.imageUrl, pokemon.types))
+      .then(() => showModal(pokemon.name, pokemon.height, pokemon.imageUrl, pokemon.types, pokemon.pokeID))
   }
 
   // Loads Each Pokemon then Fed Into Show Modal Function ----------------------
@@ -115,7 +116,7 @@ let pokemonRepository = (function () {
   }
 
   // Show Modal ****************************************************************
-  function showModal(name, height, imgUrl, types) {
+  function showModal(name, height, imgUrl, types, id) {
     // pokemon name
     let pokemonTitleName = document.getElementById('pokemon-name');
     pokemonTitleName.innerText = name.toUpperCase().trim();
@@ -133,6 +134,10 @@ let pokemonRepository = (function () {
     let typesList = [];
     types.forEach((type) => typesList.push(type.type.name));
     pokemonTypes.innerText = 'Type(s): ' + typesList;
+
+    // let pokemonID = document.querySelector('.modal-id');
+    // pokemonID.innerText = id.then((data) => data);
+    console.log(id) // Also working...
   }
 
   // Event Listeners -----------------------------------------------------------
