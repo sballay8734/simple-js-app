@@ -136,7 +136,7 @@ let pokemonRepository = (function () {
     pokemonTypes.innerText = 'Type(s): ' + typesList;
     
 
-    // SO CONFUSED HERE
+    // Problem
     id.then((res) => console.log(res)) // if this works?
 
     let pokemonID = document.querySelector('.modal-id');
