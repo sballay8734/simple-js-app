@@ -36,8 +36,7 @@ let pokemonRepository = (function () {
         throw new Error(`HTTP error: ${response.status}`)
       }
       const json = await response.json();
-      console.log(json.id) // Why does this work
-      return json.id; // But this doesn't?
+      return json.id;
     }
     catch(error) {
       console.error(`Could not get ID: ${error}`);
@@ -50,10 +49,9 @@ let pokemonRepository = (function () {
       object = {
         name: object.name,
         detailsUrl: object.detailsUrl,
-        pokeID: getID(object.detailsUrl) // But this is coming back as pending
+        pokeID: getID(object.detailsUrl)
       }
       pokemonList.push(object);
-      console.log(object.pokeID) // Pending....... ugh WHY?!
     } else {
       return 'Incorrect Format';
     }
@@ -65,7 +63,7 @@ let pokemonRepository = (function () {
   }
 
   // Add pokemon to page -------------------------------------------------------
-  function addListItem(pokemon) {
+  async function addListItem(pokemon) {
     let listSelector = document.querySelector('.pokemon-list');
 
     let listItem = document.createElement('li');
@@ -82,6 +80,12 @@ let pokemonRepository = (function () {
     buttonElement.setAttribute('data-bs-target', '#modal');
     buttonElement.setAttribute('data-bs-toggle', 'modal');
     buttonElement.innerText = pokemon.name.toUpperCase();
+
+    let idSpan = document.createElement('span');
+    idSpan.classList.add('float-right')
+    pokeID = await pokemon.pokeID.then((res) => res);
+    idSpan.innerText = "#" + pokeID;
+    buttonElement.appendChild(idSpan);
 
 
     listItem.appendChild(buttonElement);
@@ -134,13 +138,6 @@ let pokemonRepository = (function () {
     let typesList = [];
     types.forEach((type) => typesList.push(type.type.name));
     pokemonTypes.innerText = 'Type(s): ' + typesList;
-    
-
-    // Problem
-    id.then((res) => console.log(res)) // if this works?
-
-    let pokemonID = document.querySelector('.modal-id');
-    pokemonID.innerText = id.then((res) => res); // then why doesn't this work?
 
   }
 

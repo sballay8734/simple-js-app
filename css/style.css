@@ -102,3 +102,7 @@ p {
   background-color: red;
   width: 20px;
 }
+
+.float-right {
+  float: right;
+}
